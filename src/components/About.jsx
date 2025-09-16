@@ -9,6 +9,12 @@ const AboutContainer = styled.section`
   min-height: 100vh;
   display: flex;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    min-height: auto;
+    align-items: flex-start;
+  }
 `;
 
 const Content = styled.div`
@@ -27,6 +33,11 @@ const Title = styled(motion.h1)`
   line-height: 1.2;
   font-weight: 700;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const Subtitle = styled(motion.h2)`

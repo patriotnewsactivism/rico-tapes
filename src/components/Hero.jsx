@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import MobilePlayer from './MobilePlayer';
 
 const HeroContainer = styled.section`
   height: 100vh;
@@ -104,32 +105,40 @@ const Hero = () => {
         >
           A decade-long investigation into institutional corruption, military cover-ups, and the price of truth
         </Subtitle>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <CTAButton
-            href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Listen on Spotify
-          </CTAButton>
-          <CTAButton
-            href="https://linktr.ee/wtpnews"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ background: 'linear-gradient(135deg, #1DB954, #1ed760)' }}
-          >
-            All Resources & Links
-          </CTAButton>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center', maxWidth: '500px', margin: '0 auto' }}>
+          <MobilePlayer
+            episodeNumber={1}
+            episodeTitle="Camp Devil Dog and The First Domino"
+            spotifyUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+          />
+          
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <CTAButton
+              href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Open in Spotify
+            </CTAButton>
+            <CTAButton
+              href="https://linktr.ee/wtpnews"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ background: 'linear-gradient(135deg, #1DB954, #1ed760)' }}
+            >
+              All Resources & Links
+            </CTAButton>
+          </div>
         </div>
       </Content>
       <ScrollIndicator
