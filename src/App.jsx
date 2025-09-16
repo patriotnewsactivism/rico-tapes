@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Episode from './components/Episode';
 import EpisodeList from './components/EpisodeList';
+import About from './components/About';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
         <Hero />
         <EpisodeList />
         <Episode />
+        <About />
         <Footer />
       </MainContent>
     </AppContainer>

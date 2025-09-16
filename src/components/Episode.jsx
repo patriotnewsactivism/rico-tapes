@@ -208,12 +208,14 @@ const Episode = () => {
 
         <CTASection>
           <ListenButton
-            href="#spotify"
+            href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             style={{ marginRight: '1rem', marginBottom: '1rem' }}
           >
-            Listen Now
+            Listen on Spotify
           </ListenButton>
           <ListenButton
             href="https://linktr.ee/wtpnews"
@@ -228,7 +230,7 @@ const Episode = () => {
         </CTASection>
 
         <SpotifyEmbed 
-          src="https://open.spotify.com/embed/episode/4OLsIS8NizTFt9x1O3NfsF?utm_source=generator"
+          src="https://open.spotify.com/embed/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA&utm_source=generator"
           frameBorder="0" 
           allowfullscreen="" 
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 

@@ -121,11 +121,13 @@ const EpisodeList = () => {
             <EpisodeDescription>{episode.description}</EpisodeDescription>
             <ButtonGroup>
               <ListenButton
-                href={episode.spotifyUrl}
+                href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {episode.number === 1 ? 'Listen Now' : 'Coming Soon'}
+                {episode.number === 1 ? 'Listen on Spotify' : 'Coming Soon'}
               </ListenButton>
               <LinkTreeButton
                 href="https://linktr.ee/wtpnews"
