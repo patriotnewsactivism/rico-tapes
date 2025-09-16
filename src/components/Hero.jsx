@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import MobilePlayer from './MobilePlayer';
+import CleanPlayer from './CleanPlayer';
 
 const HeroContainer = styled.section`
   height: 100vh;
@@ -106,9 +106,10 @@ const Hero = () => {
           A decade-long investigation into institutional corruption, military cover-ups, and the price of truth
         </Subtitle>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center', maxWidth: '500px', margin: '0 auto' }}>
-          <MobilePlayer
+          <CleanPlayer
             episodeNumber={1}
             episodeTitle="Camp Devil Dog and The First Domino"
+            episodeDescription="The night that changed everything and the search for truth that cost everything"
             spotifyUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
           />
           

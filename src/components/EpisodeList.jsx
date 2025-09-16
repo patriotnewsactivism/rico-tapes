@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import MobilePlayer from './MobilePlayer';
+import CleanPlayer from './CleanPlayer';
 
 const Container = styled.section`
   padding: 4rem 2rem;
@@ -166,9 +166,10 @@ const EpisodeList = () => {
             <EpisodeDescription>{episode.description}</EpisodeDescription>
             
             {episode.number === 1 && (
-              <MobilePlayer
+              <CleanPlayer
                 episodeNumber={episode.number}
                 episodeTitle={episode.title}
+                episodeDescription={episode.description}
                 spotifyUrl={episode.spotifyUrl}
               />
             )}

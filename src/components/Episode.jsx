@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import CustomPlayer from './CustomPlayer';
+import CleanPlayer from './CleanPlayer';
 
 const EpisodeContainer = styled(motion.div)`
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const EpisodeCard = styled(motion.div)`
@@ -16,6 +20,11 @@ const EpisodeCard = styled(motion.div)`
   padding: 3rem;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 2rem;
+    margin: 1rem;
+  }
 `;
 
 const EpisodeHeader = styled.div`
@@ -23,6 +32,11 @@ const EpisodeHeader = styled.div`
   margin-bottom: 2.5rem;
   border-bottom: 3px solid #34495e;
   padding-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const EpisodeNumber = styled.div`
@@ -40,6 +54,10 @@ const EpisodeTitle = styled.h1`
   margin-bottom: 1rem;
   line-height: 1.2;
   font-weight: 700;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const EpisodeSubtitle = styled.p`
@@ -66,9 +84,17 @@ const DescriptionTitle = styled.h2`
 const DescriptionText = styled.p`
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #34495e;
-  text-align: justify;
+  color: #2c3e50;
+  text-align: left;
   margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.7;
+  }
 `;
 
 const HighlightQuote = styled.div`
@@ -126,30 +152,6 @@ const CTASection = styled.div`
   border-top: 2px solid #ecf0f1;
 `;
 
-const ListenButton = styled(motion.a)`
-  display: inline-block;
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  color: white;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-`;
-
-const SpotifyEmbed = styled.iframe`
-  border-radius: 12px;
-  width: 100%;
-  height: 352px;
-  margin-top: 2rem;
-  border: none;
-`;
-
 const Episode = () => {
   return (
     <EpisodeContainer
@@ -167,6 +169,13 @@ const Episode = () => {
           <EpisodeTitle>Camp Devil Dog and The First Domino</EpisodeTitle>
           <EpisodeSubtitle>The night that changed everything and the search for truth that cost everything</EpisodeSubtitle>
         </EpisodeHeader>
+
+        <CleanPlayer
+          episodeNumber={1}
+          episodeTitle="Camp Devil Dog and The First Domino"
+          episodeDescription="The night that changed everything and the search for truth that cost everything"
+          spotifyUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+        />
 
         <DescriptionSection>
           <DescriptionTitle>Episode Description</DescriptionTitle>
@@ -206,34 +215,6 @@ const Episode = () => {
           <ThemeTag>FOIA Battles</ThemeTag>
           <ThemeTag>Institutional Retaliation</ThemeTag>
         </ThemesSection>
-
-        <CTASection>
-          <ListenButton
-            href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ marginRight: '1rem', marginBottom: '1rem' }}
-          >
-            Listen on Spotify
-          </ListenButton>
-          <ListenButton
-            href="https://linktr.ee/wtpnews"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ background: 'linear-gradient(135deg, #1DB954, #1ed760)' }}
-          >
-            All Links & Resources
-          </ListenButton>
-        </CTASection>
-
-        <CustomPlayer
-          episodeTitle="Episode 1: Camp Devil Dog and The First Domino"
-          episodeDescription="The night that changed everything and the search for truth that cost everything"
-        />
       </EpisodeCard>
     </EpisodeContainer>
   );
