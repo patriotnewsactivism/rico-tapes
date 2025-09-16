@@ -1,0 +1,118 @@
+import React from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
+const Container = styled.section`
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const Title = styled.h2`
+  font-size: 2.5rem;
+  color: #ecf0f1;
+  text-align: center;
+  margin-bottom: 3rem;
+`;
+
+const EpisodeGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+`;
+
+const EpisodeCard = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+`;
+
+const EpisodeNumber = styled.div`
+  color: #e74c3c;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+`;
+
+const EpisodeTitle = styled.h3`
+  color: #ecf0f1;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+`;
+
+const EpisodeDescription = styled.p`
+  color: #bdc3c7;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+`;
+
+const ListenButton = styled(motion.a)`
+  display: inline-block;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+`;
+
+const EpisodeList = () => {
+  const episodes = [
+    {
+      number: 1,
+      title: "Camp Devil Dog and The First Domino",
+      description: "The night that changed everything started with the sound of gunfire where there shouldn't have been any. A decade-long investigation begins with a military cover-up.",
+      spotifyUrl: "#episode1"
+    },
+    {
+      number: 2,
+      title: "Coming Soon",
+      description: "The investigation deepens as new evidence emerges about the institutional mechanisms that protect powerful interests.",
+      spotifyUrl: "#coming-soon"
+    },
+    {
+      number: 3,
+      title: "Coming Soon",
+      description: "The legal battle intensifies as the fight for transparency collides with a system designed to maintain secrecy.",
+      spotifyUrl: "#coming-soon"
+    }
+  ];
+
+  return (
+    <Container id="episodes">
+      <Title>Episodes</Title>
+      <EpisodeGrid>
+        {episodes.map((episode, index) => (
+          <EpisodeCard
+            key={episode.number}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <EpisodeNumber>Episode {episode.number}</EpisodeNumber>
+            <EpisodeTitle>{episode.title}</EpisodeTitle>
+            <EpisodeDescription>{episode.description}</EpisodeDescription>
+            <ListenButton
+              href={episode.spotifyUrl}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {episode.number === 1 ? 'Listen Now' : 'Coming Soon'}
+            </ListenButton>
+          </EpisodeCard>
+        ))}
+      </EpisodeGrid>
+    </Container>
+  );
+};
+
+export default EpisodeList;
