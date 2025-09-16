@@ -46,7 +46,6 @@ const EpisodeCard = styled(motion.div)`
 
   @media (max-width: 768px) {
     padding: 1.5rem;
-    margin: 0 -1rem;
   }
 `;
 
@@ -85,10 +84,6 @@ const ButtonGroup = styled.div`
   gap: 0.5rem;
   flex-direction: column;
   align-items: stretch;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 const ListenButton = styled(motion.a)`
@@ -133,19 +128,22 @@ const EpisodeList = () => {
       number: 1,
       title: "Camp Devil Dog and The First Domino",
       description: "The night that changed everything started with the sound of gunfire where there shouldn't have been any. A decade-long investigation begins with a military cover-up.",
-      spotifyUrl: "https://open.spotify.com/embed/episode/YOUR_EPISODE_ID"
+      embedUrl: "https://open.spotify.com/embed/episode/YOUR_EPISODE_ID",
+      listenUrl: "https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=_wbe9LEJTiewpOgvOYys0w"
     },
     {
       number: 2,
       title: "Coming Soon",
       description: "The investigation deepens as new evidence emerges about the institutional mechanisms that protect powerful interests.",
-      spotifyUrl: "#coming-soon"
+      embedUrl: "#coming-soon",
+      listenUrl: "#coming-soon"
     },
     {
       number: 3,
       title: "Coming Soon",
       description: "The legal battle intensifies as the fight for transparency collides with a system designed to maintain secrecy.",
-      spotifyUrl: "#coming-soon"
+      embedUrl: "#coming-soon",
+      listenUrl: "#coming-soon"
     }
   ];
 
@@ -164,20 +162,21 @@ const EpisodeList = () => {
             <EpisodeNumber>Episode {episode.number}</EpisodeNumber>
             <EpisodeTitle>{episode.title}</EpisodeTitle>
             <EpisodeDescription>{episode.description}</EpisodeDescription>
-
+            
             {episode.number === 1 && (
-              <CleanPlayer
-                episodeNumber={episode.number}
-                episodeTitle={episode.title}
-                episodeDescription={episode.description}
-                spotifyUrl={episode.spotifyUrl}
-              />
+               <CleanPlayer
+                 episodeNumber={episode.number}
+                 episodeTitle={episode.title}
+                 episodeDescription={episode.description}
+                 spotifyUrl={episode.embedUrl}
+                 listenUrl={episode.listenUrl}
+               />
             )}
-
+            
             <ButtonGroup>
-              {episode.number === 1 ? (
+              {episode.listenUrl !== "#coming-soon" ? (
                 <ListenButton
-                  href={episode.spotifyUrl}
+                  href={episode.listenUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -187,8 +186,7 @@ const EpisodeList = () => {
                 </ListenButton>
               ) : (
                 <ListenButton
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  style={{ cursor: 'default', background: '#7f8c8d' }}
                 >
                   Coming Soon
                 </ListenButton>
