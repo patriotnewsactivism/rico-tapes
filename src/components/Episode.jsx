@@ -145,13 +145,6 @@ const ThemeTag = styled.span`
   font-weight: 500;
 `;
 
-const CTASection = styled.div`
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 2px solid #ecf0f1;
-`;
-
 const Episode = () => {
   return (
     <EpisodeContainer
@@ -175,6 +168,7 @@ const Episode = () => {
           episodeTitle="Camp Devil Dog and The First Domino"
           episodeDescription="The night that changed everything and the search for truth that cost everything"
           spotifyUrl="https://open.spotify.com/embed/episode/YOUR_EPISODE_ID"
+          listenUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=_wbe9LEJTiewpOgvOYys0w"
         />
 
         <DescriptionSection>
