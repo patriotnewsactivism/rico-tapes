@@ -97,7 +97,7 @@ const Hero = () => {
             episodeTitle="Camp Devil Dog and The First Domino"
             episodeDescription="The night that changed everything and the search for truth that cost everything"
             spotifyUrl="https://open.spotify.com/embed/episode/YOUR_EPISODE_ID"
-            listenUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=_wbe9LEJTiewpOgvOYys0w"
+            listenUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
           />
         </div>
       </Content>
