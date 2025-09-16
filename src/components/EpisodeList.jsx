@@ -52,6 +52,12 @@ const EpisodeDescription = styled.p`
   margin-bottom: 1.5rem;
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+`;
+
 const ListenButton = styled(motion.a)`
   display: inline-block;
   background: linear-gradient(135deg, #e74c3c, #c0392b);
@@ -61,6 +67,18 @@ const ListenButton = styled(motion.a)`
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+`;
+
+const LinkTreeButton = styled(motion.a)`
+  display: inline-block;
+  background: linear-gradient(135deg, #1DB954, #1ed760);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
   transition: all 0.3s ease;
 `;
 
@@ -101,13 +119,24 @@ const EpisodeList = () => {
             <EpisodeNumber>Episode {episode.number}</EpisodeNumber>
             <EpisodeTitle>{episode.title}</EpisodeTitle>
             <EpisodeDescription>{episode.description}</EpisodeDescription>
-            <ListenButton
-              href={episode.spotifyUrl}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {episode.number === 1 ? 'Listen Now' : 'Coming Soon'}
-            </ListenButton>
+            <ButtonGroup>
+              <ListenButton
+                href={episode.spotifyUrl}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {episode.number === 1 ? 'Listen Now' : 'Coming Soon'}
+              </ListenButton>
+              <LinkTreeButton
+                href="https://linktr.ee/wtpnews"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                All Resources
+              </LinkTreeButton>
+            </ButtonGroup>
           </EpisodeCard>
         ))}
       </EpisodeGrid>

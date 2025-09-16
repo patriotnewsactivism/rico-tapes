@@ -100,16 +100,31 @@ const Hero = () => {
         >
           A decade-long investigation into institutional corruption, military cover-ups, and the price of truth
         </Subtitle>
-        <CTAButton
-          href="#episodes"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Listen to Episode 1
-        </CTAButton>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <CTAButton
+            href="#episodes"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Listen to Episode 1
+          </CTAButton>
+          <CTAButton
+            href="https://linktr.ee/wtpnews"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ background: 'linear-gradient(135deg, #1DB954, #1ed760)' }}
+          >
+            All Resources & Links
+          </CTAButton>
+        </div>
       </Content>
       <ScrollIndicator
         initial={{ opacity: 0 }}

@@ -33,6 +33,7 @@ const Logo = styled(motion.h1)`
 const Nav = styled.nav`
   display: flex;
   gap: 2rem;
+  align-items: center;
 `;
 
 const NavLink = styled(motion.a)`
@@ -79,6 +80,16 @@ const Header = () => {
             whileTap={{ scale: 0.95 }}
           >
             Listen
+          </NavLink>
+          <NavLink
+            href="https://linktr.ee/wtpnews"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ background: 'linear-gradient(135deg, #1DB954, #1ed760)', padding: '0.5rem 1rem', borderRadius: '20px' }}
+          >
+            All Links
           </NavLink>
         </Nav>
       </Container>

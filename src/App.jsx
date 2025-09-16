@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Episode from './components/Episode';
 import EpisodeList from './components/EpisodeList';
+import Footer from './components/Footer';
 import './App.css';
 
 const AppContainer = styled.div`
@@ -23,6 +24,7 @@ function App() {
         <Hero />
         <EpisodeList />
         <Episode />
+        <Footer />
       </MainContent>
     </AppContainer>
   );
