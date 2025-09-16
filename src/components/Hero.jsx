@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import CleanPlayer from './CleanPlayer';
 
 const HeroContainer = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +15,7 @@ const HeroContainer = styled.section`
   background-attachment: fixed;
   position: relative;
   overflow: hidden;
+  padding: 2rem 0;
 `;
 
 const BackgroundPattern = styled.div`
@@ -61,21 +62,6 @@ const Subtitle = styled(motion.p)`
   }
 `;
 
-const CTAButton = styled(motion.a)`
-  display: inline-block;
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  color: white;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-`;
-
 const ScrollIndicator = styled(motion.div)`
   position: absolute;
   bottom: 2rem;
@@ -111,35 +97,8 @@ const Hero = () => {
             episodeTitle="Camp Devil Dog and The First Domino"
             episodeDescription="The night that changed everything and the search for truth that cost everything"
             spotifyUrl="https://open.spotify.com/embed/episode/YOUR_EPISODE_ID"
+            listenUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=_wbe9LEJTiewpOgvOYys0w"
           />
-
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <CTAButton
-              href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=_wbe9LEJTiewpOgvOYys0w"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Open in Spotify
-            </CTAButton>
-            <CTAButton
-              href="https://linktr.ee/wtpnews"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ background: 'linear-gradient(135deg, #1DB954, #1ed760)' }}
-            >
-              All Resources & Links
-            </CTAButton>
-          </div>
         </div>
       </Content>
       <ScrollIndicator
