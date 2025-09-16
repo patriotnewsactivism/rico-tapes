@@ -23,7 +23,7 @@ const BackgroundPattern = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
+  background-image:
     radial-gradient(circle at 20% 50%, rgba(231, 76, 60, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 40% 80%, rgba(231, 76, 60, 0.1) 0%, transparent 50%);
@@ -44,7 +44,7 @@ const Title = styled(motion.h1)`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
@@ -55,7 +55,7 @@ const Subtitle = styled(motion.p)`
   color: #ecf0f1;
   margin-bottom: 2rem;
   opacity: 0.9;
-  
+
   @media (max-width: 768px) {
     font-size: 1.2rem;
   }
@@ -110,12 +110,12 @@ const Hero = () => {
             episodeNumber={1}
             episodeTitle="Camp Devil Dog and The First Domino"
             episodeDescription="The night that changed everything and the search for truth that cost everything"
-            spotifyUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+            spotifyUrl="https://open.spotify.com/embed/episode/YOUR_EPISODE_ID"
           />
-          
+
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <CTAButton
-              href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+              href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=_wbe9LEJTiewpOgvOYys0w"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
