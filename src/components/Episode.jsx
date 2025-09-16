@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import CustomPlayer from './CustomPlayer';
 
 const EpisodeContainer = styled(motion.div)`
   max-width: 900px;
@@ -229,12 +230,9 @@ const Episode = () => {
           </ListenButton>
         </CTASection>
 
-        <SpotifyEmbed 
-          src="https://open.spotify.com/embed/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA&utm_source=generator"
-          frameBorder="0" 
-          allowfullscreen="" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy"
+        <CustomPlayer
+          episodeTitle="Episode 1: Camp Devil Dog and The First Domino"
+          episodeDescription="The night that changed everything and the search for truth that cost everything"
         />
       </EpisodeCard>
     </EpisodeContainer>
