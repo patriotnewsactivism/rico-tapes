@@ -119,17 +119,13 @@ const CleanPlayer = ({ episodeNumber, episodeTitle, episodeDescription, spotifyU
       </PlayerHeader>
 
       <EmbedContainer>
-        <iframe
-          src={`${spotifyUrl}?utm_source=generator`}
-          width="100%"
-          height="152"
-          frameBorder="0"
-          allowFullScreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
+        <div 
+          className='sk-ww-spotify-podcast' 
+          data-embed-id='25600175'
           style={{ 
             borderRadius: '15px',
-            border: 'none'
+            overflow: 'hidden',
+            minHeight: '152px'
           }}
         />
       </EmbedContainer>

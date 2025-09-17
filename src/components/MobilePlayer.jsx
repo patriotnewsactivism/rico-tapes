@@ -136,15 +136,14 @@ const MobilePlayer = ({ episodeNumber, episodeTitle, spotifyUrl }) => {
         </EpisodeInfo>
       </PlayerHeader>
 
-      <iframe
-        src={`${spotifyUrl}?utm_source=generator`}
-        width="100%"
-        height="152"
-        frameBorder="0"
-        allowFullScreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        style={{ borderRadius: '12px' }}
+      <div 
+        className='sk-ww-spotify-podcast' 
+        data-embed-id='25600175'
+        style={{ 
+          borderRadius: '12px',
+          overflow: 'hidden',
+          minHeight: '152px'
+        }}
       />
       
       <Controls>

@@ -38,73 +38,43 @@ const PlayButton = styled(motion.a)`
   margin: 0.5rem;
 `;
 
-const EmbedContainer = styled.div`
-  margin: 1rem 0;
+const PlayerCard = styled.div`
+  background: rgba(29, 185, 84, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.3);
   border-radius: 12px;
-  overflow: hidden;
-  min-height: 200px;
+  padding: 2rem;
+  margin: 1rem 0;
+  text-align: center;
 `;
 
-const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 1rem 0;
-  color: #bdc3c7;
-`;
-
-const CustomPlayer = ({ episodeTitle, episodeDescription }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Load SociableKit script
-    const script = document.createElement('script');
-    script.src = 'https://widgets.sociablekit.com/spotify-podcast/widget.js';
-    script.defer = true;
-    
-    script.onload = () => {
-      setIsLoading(false);
-    };
-    
-    script.onerror = () => {
-      setIsLoading(false);
-    };
-    
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://widgets.sociablekit.com/spotify-podcast/widget.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
-    };
-  }, []);
+const ReliablePlayer = ({ episodeTitle, episodeDescription }) => {
+  const [useSociableKit, setUseSociableKit] = useState(true);
 
   return (
     <PlayerContainer>
       <PlayerTitle>{episodeTitle}</PlayerTitle>
       <PlayerDescription>{episodeDescription}</PlayerDescription>
       
-      <EmbedContainer>
-        {isLoading && (
-          <LoadingContainer>
-            Loading reliable player...
-          </LoadingContainer>
-        )}
+      {useSociableKit ? (
         <div 
           className='sk-ww-spotify-podcast' 
           data-embed-id='25600175'
           style={{ 
             borderRadius: '12px',
             overflow: 'hidden',
-            display: isLoading ? 'none' : 'block'
+            minHeight: '200px'
           }}
         />
-      </EmbedContainer>
+      ) : (
+        <PlayerCard>
+          <h4 style={{ color: '#1DB954', marginBottom: '1rem' }}>
+            Episode 1: The RICO Tapes
+          </h4>
+          <p style={{ color: '#bdc3c7', marginBottom: '1.5rem' }}>
+            Listen to the groundbreaking investigation into Bradley Foust's story
+          </p>
+        </PlayerCard>
+      )}
       
       <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
         <PlayButton
@@ -132,4 +102,4 @@ const CustomPlayer = ({ episodeTitle, episodeDescription }) => {
   );
 };
 
-export default CustomPlayer;
+export default ReliablePlayer;
