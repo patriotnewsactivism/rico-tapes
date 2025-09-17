@@ -7,7 +7,7 @@ const Container = styled.section`
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  
+
   @media (max-width: 768px) {
     padding: 2rem 1rem;
   }
@@ -18,7 +18,7 @@ const Title = styled.h2`
   color: #ecf0f1;
   text-align: center;
   margin-bottom: 3rem;
-  
+
   @media (max-width: 768px) {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -29,7 +29,7 @@ const EpisodeGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -43,10 +43,9 @@ const EpisodeCard = styled(motion.div)`
   border-radius: 20px;
   padding: 2rem;
   transition: all 0.3s ease;
-  
+
   @media (max-width: 768px) {
     padding: 1.5rem;
-    margin: 0 -1rem;
   }
 `;
 
@@ -63,7 +62,7 @@ const EpisodeTitle = styled.h3`
   color: #ecf0f1;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  
+
   @media (max-width: 768px) {
     font-size: 1.3rem;
   }
@@ -74,7 +73,7 @@ const EpisodeDescription = styled.p`
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  
+
   @media (max-width: 768px) {
     font-size: 0.9rem;
   }
@@ -85,10 +84,6 @@ const ButtonGroup = styled.div`
   gap: 0.5rem;
   flex-direction: column;
   align-items: stretch;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 const ListenButton = styled(motion.a)`
@@ -102,7 +97,7 @@ const ListenButton = styled(motion.a)`
   font-size: 0.9rem;
   transition: all 0.3s ease;
   text-align: center;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
@@ -120,7 +115,7 @@ const LinkTreeButton = styled(motion.a)`
   font-size: 0.9rem;
   transition: all 0.3s ease;
   text-align: center;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(29, 185, 84, 0.3);
@@ -133,19 +128,22 @@ const EpisodeList = () => {
       number: 1,
       title: "Camp Devil Dog and The First Domino",
       description: "The night that changed everything started with the sound of gunfire where there shouldn't have been any. A decade-long investigation begins with a military cover-up.",
-      spotifyUrl: "https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+      embedUrl: "https://open.spotify.com/embed/episode/YOUR_EPISODE_ID",
+      listenUrl: "https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
     },
     {
       number: 2,
       title: "Coming Soon",
       description: "The investigation deepens as new evidence emerges about the institutional mechanisms that protect powerful interests.",
-      spotifyUrl: "#coming-soon"
+      embedUrl: "#coming-soon",
+      listenUrl: "#coming-soon"
     },
     {
       number: 3,
       title: "Coming Soon",
       description: "The legal battle intensifies as the fight for transparency collides with a system designed to maintain secrecy.",
-      spotifyUrl: "#coming-soon"
+      embedUrl: "#coming-soon",
+      listenUrl: "#coming-soon"
     }
   ];
 
@@ -166,18 +164,19 @@ const EpisodeList = () => {
             <EpisodeDescription>{episode.description}</EpisodeDescription>
             
             {episode.number === 1 && (
-              <CleanPlayer
-                episodeNumber={episode.number}
-                episodeTitle={episode.title}
-                episodeDescription={episode.description}
-                spotifyUrl={episode.spotifyUrl}
-              />
+               <CleanPlayer
+                 episodeNumber={episode.number}
+                 episodeTitle={episode.title}
+                 episodeDescription={episode.description}
+                 spotifyUrl={episode.embedUrl}
+                 listenUrl={episode.listenUrl}
+               />
             )}
             
             <ButtonGroup>
-              {episode.number === 1 ? (
+              {episode.listenUrl !== "#coming-soon" ? (
                 <ListenButton
-                  href={episode.spotifyUrl}
+                  href={episode.listenUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -187,8 +186,7 @@ const EpisodeList = () => {
                 </ListenButton>
               ) : (
                 <ListenButton
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  style={{ cursor: 'default', background: '#7f8c8d' }}
                 >
                   Coming Soon
                 </ListenButton>

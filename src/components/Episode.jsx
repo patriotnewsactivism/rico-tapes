@@ -7,7 +7,7 @@ const EpisodeContainer = styled(motion.div)`
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
-  
+
   @media (max-width: 768px) {
     padding: 1rem;
   }
@@ -20,7 +20,7 @@ const EpisodeCard = styled(motion.div)`
   padding: 3rem;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  
+
   @media (max-width: 768px) {
     padding: 2rem;
     margin: 1rem;
@@ -32,7 +32,7 @@ const EpisodeHeader = styled.div`
   margin-bottom: 2.5rem;
   border-bottom: 3px solid #34495e;
   padding-bottom: 2rem;
-  
+
   @media (max-width: 768px) {
     padding-bottom: 1.5rem;
     margin-bottom: 2rem;
@@ -54,7 +54,7 @@ const EpisodeTitle = styled.h1`
   margin-bottom: 1rem;
   line-height: 1.2;
   font-weight: 700;
-  
+
   @media (max-width: 768px) {
     font-size: 2rem;
   }
@@ -89,7 +89,7 @@ const DescriptionText = styled.p`
   margin-bottom: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.3px;
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
     text-align: left;
@@ -145,13 +145,6 @@ const ThemeTag = styled.span`
   font-weight: 500;
 `;
 
-const CTASection = styled.div`
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 2px solid #ecf0f1;
-`;
-
 const Episode = () => {
   return (
     <EpisodeContainer
@@ -174,7 +167,8 @@ const Episode = () => {
           episodeNumber={1}
           episodeTitle="Camp Devil Dog and The First Domino"
           episodeDescription="The night that changed everything and the search for truth that cost everything"
-          spotifyUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
+          spotifyUrl="https://open.spotify.com/embed/episode/YOUR_EPISODE_ID"
+          listenUrl="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF?si=QE-BTnhESCGnbI5s9EzbbA"
         />
 
         <DescriptionSection>
@@ -182,7 +176,7 @@ const Episode = () => {
           <DescriptionText>
             The night that changed everything started with the sound of gunfire where there shouldn't have been any. At Marine Corps training base "Camp Devil Dog" in 2008, what happened to Lance Corporal Bradley Foust was officially labeled a "training accident" — but the narrator knows what he saw and heard.
           </DescriptionText>
-          
+
           <HighlightQuote>
             That was the first time I saw how truth could be edited — how the 'official truth' could be made to serve an agenda.
           </HighlightQuote>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -39,7 +39,7 @@ const EpisodeImage = styled.div`
 
 const EpisodeInfo = styled.div`
   flex: 1;
-  
+
   h3 {
     font-size: 1.4rem;
     color: #2c3e50;
@@ -47,7 +47,7 @@ const EpisodeInfo = styled.div`
     font-weight: 700;
     line-height: 1.3;
   }
-  
+
   p {
     font-size: 1rem;
     color: #34495e;
@@ -88,7 +88,7 @@ const ActionButton = styled(motion.a)`
 const PlayButton = styled(ActionButton)`
   background: linear-gradient(135deg, #1DB954, #1ed760);
   color: white;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
@@ -98,14 +98,14 @@ const PlayButton = styled(ActionButton)`
 const LinkButton = styled(ActionButton)`
   background: linear-gradient(135deg, #e74c3c, #c0392b);
   color: white;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
   }
 `;
 
-const CleanPlayer = ({ episodeNumber, episodeTitle, episodeDescription, spotifyUrl }) => {
+const CleanPlayer = ({ episodeNumber, episodeTitle, episodeDescription, spotifyUrl, listenUrl }) => {
   return (
     <PlayerContainer>
       <PlayerHeader>
@@ -119,20 +119,24 @@ const CleanPlayer = ({ episodeNumber, episodeTitle, episodeDescription, spotifyU
       </PlayerHeader>
 
       <EmbedContainer>
-        <div 
-          className='sk-ww-spotify-podcast' 
-          data-embed-id='25600175'
-          style={{ 
+        <iframe
+          src={`${spotifyUrl}?utm_source=generator&theme=0`}
+          width="100%"
+          height="152"
+          frameBorder="0"
+          allowFullScreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          style={{
             borderRadius: '15px',
-            overflow: 'hidden',
-            minHeight: '152px'
+            border: 'none'
           }}
         />
       </EmbedContainer>
 
       <ActionButtons>
         <PlayButton
-          href={spotifyUrl}
+          href={listenUrl}
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}

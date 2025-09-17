@@ -1,133 +1,159 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const PlayerContainer = styled.div`
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   padding: 2rem;
-  margin: 2rem 0;
-  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
 `;
 
-const PlayerTitle = styled.h3`
-  color: #ecf0f1;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-`;
-
-const PlayerDescription = styled.p`
-  color: #bdc3c7;
-  font-size: 1rem;
+const PlayerHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
 `;
 
-const PlayButton = styled(motion.a)`
-  display: inline-block;
+const EpisodeImage = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
   background: linear-gradient(135deg, #1DB954, #1ed760);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+`;
+
+const EpisodeInfo = styled.div`
+  flex: 1;
+
+  h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #34495e;
+    margin: 0;
+    line-height: 1.4;
+  }
+`;
+
+const EmbedContainer = styled.div`
+  margin: 1.5rem 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+`;
+
+const ActionButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const ActionButton = styled(motion.a)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 1rem 2rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(29, 185, 84, 0.3);
-  margin: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
 `;
 
-const EmbedContainer = styled.div`
-  margin: 1rem 0;
-  border-radius: 12px;
-  overflow: hidden;
-  min-height: 200px;
+const PlayButton = styled(ActionButton)`
+  background: linear-gradient(135deg, #1DB954, #1ed760);
+  color: white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+  }
 `;
 
-const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 1rem 0;
-  color: #bdc3c7;
+const LinkButton = styled(ActionButton)`
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+  }
 `;
 
-const CustomPlayer = ({ episodeTitle, episodeDescription }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Load SociableKit script
-    const script = document.createElement('script');
-    script.src = 'https://widgets.sociablekit.com/spotify-podcast/widget.js';
-    script.defer = true;
-    
-    script.onload = () => {
-      setIsLoading(false);
-    };
-    
-    script.onerror = () => {
-      setIsLoading(false);
-    };
-    
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://widgets.sociablekit.com/spotify-podcast/widget.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
-    };
-  }, []);
-
+const CleanPlayer = ({ episodeNumber, episodeTitle, episodeDescription, spotifyUrl, listenUrl }) => {
   return (
     <PlayerContainer>
-      <PlayerTitle>{episodeTitle}</PlayerTitle>
-      <PlayerDescription>{episodeDescription}</PlayerDescription>
-      
+      <PlayerHeader>
+        <EpisodeImage>
+          {episodeNumber}
+        </EpisodeImage>
+        <EpisodeInfo>
+          <h3>{episodeTitle}</h3>
+          <p>{episodeDescription}</p>
+        </EpisodeInfo>
+      </PlayerHeader>
+
       <EmbedContainer>
-        {isLoading && (
-          <LoadingContainer>
-            Loading reliable player...
-          </LoadingContainer>
-        )}
-        <div 
-          className='sk-ww-spotify-podcast' 
-          data-embed-id='25600175'
-          style={{ 
-            borderRadius: '12px',
-            overflow: 'hidden',
-            display: isLoading ? 'none' : 'block'
+        <iframe
+          src={`${spotifyUrl}?utm_source=generator&theme=0`}
+          width="100%"
+          height="152"
+          frameBorder="0"
+          allowFullScreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          style={{
+            borderRadius: '15px',
+            border: 'none'
           }}
         />
       </EmbedContainer>
-      
-      <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+
+      <ActionButtons>
         <PlayButton
-          href="https://open.spotify.com/episode/4OLsIS8NizTFt9x1O3NfsF"
+          href={listenUrl}
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Listen on Spotify
+          ▶️ Listen on Spotify
         </PlayButton>
-        
-        <PlayButton
+        <LinkButton
           href="https://linktr.ee/wtpnews"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ background: 'linear-gradient(135deg, #e74c3c, #c0392b)' }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          More Episodes
-        </PlayButton>
-      </div>
+          🔗 All Resources
+        </LinkButton>
+      </ActionButtons>
     </PlayerContainer>
   );
 };
